@@ -116,3 +116,25 @@ import java.io.*;
         System.out.println(sum);
     }
 ```
+
+<h3>Stream</h3>
+
+chars() 메서드를 이용해 IntStream화 한 후,
+char 타입의 스트림으로 변환,
+forEach를 이용해 한 글자씩 분리
+
+```java
+public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        int t = Integer.parseInt(br.readLine());
+        String number = br.readLine();
+
+        int sum = number.chars() // 문자열을 IntStream으로 변환
+                .limit(t) // 첫 t개의 문자만 처리
+                .map(c -> c - '0') // 각 문자를 숫자로 변환
+                .sum(); // 합산
+
+        System.out.println(sum);
+    }
+```
