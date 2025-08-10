@@ -1,6 +1,5 @@
 package 정렬.버블_정렬;
 
-import javax.lang.model.element.Element;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -11,14 +10,15 @@ class Sort implements Comparable<Sort> {
     int index;
 
     public Sort(int value, int index) {
-        super();
+        // super()는 Java가 자동으로 삽입
         this.value = value;
         this.index = index;
     }
 
     @Override
     public int compareTo(Sort o) {
-        return this.value - o.value;
+        // return this.value - o.value; 보다 Integer.compare를 사용하는 게 언더플로우방지에 좋음
+        return Integer.compare(this.value, o.value);
     }
 }
 
